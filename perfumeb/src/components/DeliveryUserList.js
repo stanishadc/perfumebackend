@@ -61,7 +61,7 @@ export default function DeliveryUserList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'http://www.api.perfumatory.shop/api/user/') => {
+    const applicationAPI = (url = 'https://api.perfumatory.shop/api/user/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

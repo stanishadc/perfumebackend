@@ -67,7 +67,7 @@ export default function BrandsList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'http://www.api.perfumatory.shop/api/homeslider/') => {
+    const applicationAPI = (url = 'https://api.perfumatory.shop/api/homeslider/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

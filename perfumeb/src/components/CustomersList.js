@@ -7,7 +7,7 @@ import { Grid } from 'gridjs-react';
 
 export default function CustomersList(props) {
     const [customersList, setCustomersList] = useState([])
-    const applicationAPI = (url = 'http://www.api.perfumatory.shop/api/customer/') => {
+    const applicationAPI = (url = 'https://api.perfumatory.shop/api/customer/') => {
         return {
             fetchAll: () => axios.get(url + 'get')
         }
