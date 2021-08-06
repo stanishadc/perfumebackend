@@ -56,7 +56,6 @@ export default function BrandsList(props) {
         })
     }
     const validate = () => {
-        console.log("error");
         let temp = {}
         temp.brandName = values.brandName == "" ? false : true;
         temp.imageSrc = values.imageSrc == defaultProductImage ? false : true;
@@ -83,7 +82,7 @@ export default function BrandsList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://api.perfumatory.shop/api/brand/') => {
+    const applicationAPI = (url = 'https://service.perfumatory.shop/api/brand/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),
@@ -110,7 +109,7 @@ export default function BrandsList(props) {
         }
         else {
             applicationAPI().update(formData.get('brandId'), formData)
-                .then(res => {
+                .then(res => {console.log(res)
                     if (res.data.status == "Success") {
                         handleSuccess("Brand Details Updated");
                     }

@@ -202,14 +202,14 @@ export default function AddProduct(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://api.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://service.perfumatory.shop/api/product/') => {
         return {
-            fetchBrands: () => axios.get('https://api.perfumatory.shop/api/brand/get'),
-            fetchBottles: () => axios.get('https://api.perfumatory.shop/api/bottle/get'),
-            fetchCategories: () => axios.get('https://api.perfumatory.shop/api/category/get'),
-            fetchCollections: () => axios.get('https://api.perfumatory.shop/api/collection/get'),
+            fetchBrands: () => axios.get('https://service.perfumatory.shop/api/brand/get'),
+            fetchBottles: () => axios.get('https://service.perfumatory.shop/api/bottle/get'),
+            fetchCategories: () => axios.get('https://service.perfumatory.shop/api/category/get'),
+            fetchCollections: () => axios.get('https://service.perfumatory.shop/api/collection/get'),
             create: newRecord => axios.post(url + "insert", newRecord),
-            createImage: newRecord => axios.post("https://api.perfumatory.shop/api/productimage/insert", newRecord),
+            createImage: newRecord => axios.post("https://service.perfumatory.shop/api/productimage/insert", newRecord),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord)            
         }
     }

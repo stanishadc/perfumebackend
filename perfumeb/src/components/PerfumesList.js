@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 export default function PerfumessList(props) {
     const [productList, setProductList] = useState([])
     const [loading, setLoading] = useState(false);
-    const applicationAPI = (url = 'https://api.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://service.perfumatory.shop/api/product/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             delete: id => axios.delete(url + "delete/" + id),
-            deleteimage: id => axios.delete("https://api.perfumatory.shop/api/productimage/delete/" + id)
+            deleteimage: id => axios.delete("https://service.perfumatory.shop/api/productimage/delete/" + id)
         }
     }
     const onDelete = (e, id) => {

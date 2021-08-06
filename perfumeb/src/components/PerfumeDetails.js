@@ -202,13 +202,13 @@ export default function PerfumeDetails(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://api.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://service.perfumatory.shop/api/product/') => {
         return {
-            fetchProductDetails: () => axios.get('https://api.perfumatory.shop/api/product/getbyid/'+props.match.params["productId"]),
-            fetchBrands: () => axios.get('https://api.perfumatory.shop/api/brand/get'),
-            fetchBottles: () => axios.get('https://api.perfumatory.shop/api/bottle/get'),
-            fetchCategories: () => axios.get('https://api.perfumatory.shop/api/category/get'),
-            fetchCollections: () => axios.get('https://api.perfumatory.shop/api/collection/get'),
+            fetchProductDetails: () => axios.get('https://service.perfumatory.shop/api/product/getbyid/'+props.match.params["productId"]),
+            fetchBrands: () => axios.get('https://service.perfumatory.shop/api/brand/get'),
+            fetchBottles: () => axios.get('https://service.perfumatory.shop/api/bottle/get'),
+            fetchCategories: () => axios.get('https://service.perfumatory.shop/api/category/get'),
+            fetchCollections: () => axios.get('https://service.perfumatory.shop/api/collection/get'),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord)
         }
     }
