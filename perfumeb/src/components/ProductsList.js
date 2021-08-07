@@ -174,6 +174,7 @@ export default function ProductsList(props) {
         if (validate()) {
             const formData = new FormData()
             formData.append('productId', values.productId)
+            formData.append('productCode', values.productCode)
             formData.append('productName', values.productName)
             formData.append('productDescription', values.productDescription)
             formData.append('productImage', values.productImage)
@@ -182,7 +183,6 @@ export default function ProductsList(props) {
             formData.append('updatedDate', values.updatedDate)
             formData.append('userId', parseInt(values.userId))
             formData.append('status', values.status)
-            formData.append('productCode', values.productCode)
             formData.append('purchasePrice', values.purchasePrice)
             formData.append('salePrice', values.salePrice)
             formData.append('tax', values.tax)
@@ -212,15 +212,15 @@ export default function ProductsList(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://service.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/product/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
-            fetchBrands: () => axios.get('https://service.perfumatory.shop/api/brand/get'),
-            fetchBottles: () => axios.get('https://service.perfumatory.shop/api/bottle/get'),
-            fetchCategories: () => axios.get('https://service.perfumatory.shop/api/category/get'),
-            fetchCollections: () => axios.get('https://service.perfumatory.shop/api/collection/get'),
+            fetchBrands: () => axios.get('https://papi.perfumatory.shop/api/brand/get'),
+            fetchBottles: () => axios.get('https://papi.perfumatory.shop/api/bottle/get'),
+            fetchCategories: () => axios.get('https://papi.perfumatory.shop/api/category/get'),
+            fetchCollections: () => axios.get('https://papi.perfumatory.shop/api/collection/get'),
             create: newRecord => axios.post(url + "insert", newRecord),
-            createImage: newRecord => axios.post("https://service.perfumatory.shop/api/productimage/insert", newRecord),
+            createImage: newRecord => axios.post("https://papi.perfumatory.shop/api/productimage/insert", newRecord),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord),
             delete: id => axios.delete(url + "delete/" + id)
         }
@@ -409,6 +409,10 @@ export default function ProductsList(props) {
                                             </select>
                                             <label htmlFor="tag">Tag</label>
                                         </div>
+                                        <div className="col-sm-4 col-12">
+                                            <input className={"form-control" + applyErrorClass('productCode')} name="productCode" type="text" value={values.productCode} onChange={handleInputChange} />
+                                            <label htmlFor="productCode">Product BarCode</label>
+                                        </div>
                                     </div>
                                     <div className="form-group row floating-label">
                                         <div className="col-sm-4 col-12">
@@ -522,7 +526,7 @@ export default function ProductsList(props) {
                             <thead>
                                 <tr>
                                     <th width="6%">Image</th>
-                                    <th width="10%">ProductCode</th>
+                                    <th width="10%">ProductBarCode</th>
                                     <th width="54%">ProductName</th>
                                     <th width="4%">Stock</th>
                                     <th width="6%">Status</th>

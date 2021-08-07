@@ -27,12 +27,7 @@ export default function Sidebar(props) {
                         <Link to={"/perfumeslist"}><i className="fa fa-dashboard mr-3"> </i>
                             <span className="none">Products<i className="fa fa-angle-down pull-right align-bottom" /></span>
                         </Link>
-                    </li>
-                    <li className="parent">
-                        <Link to={"/payments/paymentslist"}><i className="fa fa-dashboard mr-3"> </i>
-                            <span className="none">Payments<i className="fa fa-angle-down pull-right align-bottom" /></span>
-                        </Link>
-                    </li>
+                    </li>                    
                     <li className="parent">
                         <Link to={"/customers/customerslist"}><i className="fa fa-dashboard mr-3"> </i>
                             <span className="none">Customers<i className="fa fa-angle-down pull-right align-bottom" /></span>

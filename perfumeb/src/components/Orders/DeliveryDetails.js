@@ -44,8 +44,8 @@ export default function DeliveryDetails(props) {
     const [errors, setErrors] = useState({})
     const applicationAPI = () => {
         return {
-            fetchOrder: () => axios.get('https://service.perfumatory.shop/api/order/GetOrderDetails/' + props.match.params["orderNo"]),
-            UpdateDeliveryDate: (id, updateRecord) => axios.put("https://service.perfumatory.shop/api/order/UpdateDeliveryDate/" + id, updateRecord)
+            fetchOrder: () => axios.get('https://papi.perfumatory.shop/api/order/GetOrderDetails/' + props.match.params["orderNo"]),
+            UpdateDeliveryDate: (id, updateRecord) => axios.put("https://papi.perfumatory.shop/api/order/UpdateDeliveryDate/" + id, updateRecord)
         }
     }
     const handleInputChange = e => {
@@ -82,7 +82,7 @@ export default function DeliveryDetails(props) {
     const applyErrorClass = field => ((field in errors && errors[field] == false) ? ' form-control-danger' : '')
     useEffect(function effectFunction() {
         async function fetchOrder() {
-            const response = await fetch('https://service.perfumatory.shop/api/order/GetOrderDetails/' + props.match.params["orderNo"])
+            const response = await fetch('https://papi.perfumatory.shop/api/order/GetOrderDetails/' + props.match.params["orderNo"])
             const json = await response.json();
             setValues(json[0]);
             setLoading(true);

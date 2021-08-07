@@ -52,7 +52,7 @@ export default function CollectionList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://service.perfumatory.shop/api/collection/') => {
+    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/collection/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

@@ -79,7 +79,7 @@ export default function ProductImages(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://service.perfumatory.shop/api/productImage/') => {
+    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/productImage/') => {
         return {
             fetchProductImages: () => axios.get(url + 'GetByProduct/' + props.match.params["productId"]),
             create: newRecord => axios.post(url + "insert", newRecord),
