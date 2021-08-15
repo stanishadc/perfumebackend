@@ -46,13 +46,13 @@ export default function Home(props) {
       .then(result => {
         console.log(result.data)
         if (result.data.status === "Success") {
-          if (result.data.userId === 1) {
+          if (result.data.roleId === 1) {
             auth.login(() => {
               localStorage.setItem('perfumeUserId', result.userId);
               props.history.push("/dashboard");
             });
           }
-          else if (result.data.userId === 4) {
+          else if (result.data.roleId === 3) {
             auth.login(() => {
               localStorage.setItem('perfumeDeliveryId', result.userId);
               props.history.push("/dispatchlist");

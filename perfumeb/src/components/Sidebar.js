@@ -39,15 +39,15 @@ export default function Sidebar(props) {
                         </Link>
                     </li>
                     <li className="parent">
-                        <Link to={"/collection/collectionlist"}><i className="fa fa-dashboard mr-3"> </i>
-                            <span className="none">Collections<i className="fa fa-angle-down pull-right align-bottom" /></span>
-                        </Link>
-                    </li>
-                    <li className="parent">
                         <Link to={"/brand/brandslist"}><i className="fa fa-dashboard mr-3"> </i>
                             <span className="none">Brands<i className="fa fa-angle-down pull-right align-bottom" /></span>
                         </Link>
                     </li>
+                    <li className="parent">
+                        <Link to={"/collection/collectionlist"}><i className="fa fa-dashboard mr-3"> </i>
+                            <span className="none">Collections<i className="fa fa-angle-down pull-right align-bottom" /></span>
+                        </Link>
+                    </li>                    
                     <li className="parent">
                         <Link to={"/products/bottlesize"}><i className="fa fa-dashboard mr-3"> </i>
                             <span className="none">Bottle Size<i className="fa fa-angle-down pull-right align-bottom" /></span>

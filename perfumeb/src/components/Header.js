@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import auth from '../Auth'
 import { createHashHistory } from 'history'
 export const history = createHashHistory()
-export default class Header extends Component {
-    constructor(props)
-    {
-        super(props);
-        console.log(this.props)
+export default function Header(props) {
+    const logout = e => {
+        localStorage.clear();
+        window.location.href = '/';
     }
-    render() {
         return (
             <div className="row header shadow-sm">
                 {/*Logo*/}
@@ -36,11 +34,7 @@ export default class Header extends Component {
                         <div className="col-sm-8 col-4 text-right flex-header-menu justify-content-end">
 
                             <div className="mr-4">
-                                <button onClick={() => {
-                                    auth.logout(() => {
-                                        history.push("/")
-                                    })
-                                }}>Logout</button>
+                                <button onClick={() => { logout() }}>Logout</button>
                             </div>
                         </div>
                         {/*Search box and avatar*/}
@@ -50,4 +44,3 @@ export default class Header extends Component {
             </div>
         )
     }
-}
