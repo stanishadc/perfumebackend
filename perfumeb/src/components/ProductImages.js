@@ -4,7 +4,7 @@ import { handleSuccess, handleError } from '../CustomAlerts'
 import Header from './Header';
 import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
-
+import moment from 'moment';
 const defaultProductImage = "/assets/img/default-avatar.jpg";
 const initialFieldValues = {
     productImageId: 0,
@@ -13,8 +13,8 @@ const initialFieldValues = {
     imageSrc: defaultProductImage,
     imageFile: null,
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString(),
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
     userId: 1
 }
 export default function ProductImages(props) {

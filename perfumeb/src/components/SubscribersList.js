@@ -3,13 +3,13 @@ import axios from 'axios'
 import { handleSuccess, handleError } from '../CustomAlerts'
 import Header from './Header';
 import Sidebar from './Sidebar';
-import { Link } from 'react-router-dom';
+import moment from 'moment';
 const initialFieldValues = {
     subscribeId: 0,
     subscribeEmail: '',    
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString()    
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
 }
 export default function SubscribersList(props) {
     const [subscriberList, setSubscriberList] = useState([])

@@ -3,14 +3,14 @@ import axios from 'axios'
 import { handleSuccess, handleError } from '../CustomAlerts'
 import Header from './Header';
 import Sidebar from './Sidebar';
-
+import moment from 'moment';
 
 const initialFieldValues = {
     bottleId: 0,
     bottleName: '',
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString(),
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
     userId: 1
 }
 export default function Bottles(props) {

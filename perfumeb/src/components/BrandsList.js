@@ -3,7 +3,7 @@ import axios from 'axios'
 import { handleSuccess, handleError } from '../CustomAlerts'
 import Header from './Header';
 import Sidebar from './Sidebar';
-
+import moment from 'moment';
 const defaultProductImage = "/assets/img/default-avatar.jpg";
 const initialFieldValues = {
     brandId: 0,
@@ -13,8 +13,8 @@ const initialFieldValues = {
     imageSrc: defaultProductImage,
     imageFile: null,
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString(),
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
     userId: 1
 }
 export default function BrandsList(props) {

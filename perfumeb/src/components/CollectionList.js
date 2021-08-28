@@ -3,15 +3,15 @@ import axios from 'axios'
 import { handleSuccess, handleError } from '../CustomAlerts'
 import Header from './Header';
 import Sidebar from './Sidebar';
-
+import moment from 'moment';
 const userId = localStorage.getItem("userId");
 const initialFieldValues = {
     brandId: 0,
     collectionId: 0,
     collectionName: '',
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString(),
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
     userId: userId
 }
 export default function CollectionList(props) {

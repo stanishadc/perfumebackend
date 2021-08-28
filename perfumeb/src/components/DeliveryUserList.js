@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 import {handleSuccess, handleError} from '../../CustomAlerts';
+import moment from 'moment';
 const initialFieldValues = {
     userId: 0,
     password: '',
@@ -12,8 +13,8 @@ const initialFieldValues = {
     phoneNumber: '',
     phoneNumberConfirmed : false,
     status: true,
-    createdDate: new Date().toLocaleString(),
-    updatedDate: new Date().toLocaleString(),
+    createdDate: moment().format(),
+    updatedDate: moment().format(),
     roleId: 3
 }
 export default function DeliveryUserList(props) {
