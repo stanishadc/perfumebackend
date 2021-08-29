@@ -12,7 +12,7 @@ const initialFieldValues = {
     status: true,
     createdDate: moment().format(),
     updatedDate: moment().format(),
-    userId: userId
+    userId: "1"
 }
 export default function CollectionList(props) {
     const [brandList, setBrandList] = useState([])
@@ -36,21 +36,21 @@ export default function CollectionList(props) {
         let temp = {}
         temp.brandId = values.brandId == 0 ? false : true;
         temp.collectionName = values.collectionName == "" ? false : true;
-        temp.status = values.status == "0" ? false : true;
         setErrors(temp)
         return Object.values(temp).every(x => x == true)
     }
     const handleSubmit = e => {
         e.preventDefault();
         if (validate()) {
-            const formData = new FormData()
-            formData.append('brandId', values.brandId)
-            formData.append('collectionId', values.collectionId)
+            const formData = new FormData()            
+            formData.append('collectionId',  parseInt(values.collectionId))
             formData.append('collectionName', values.collectionName)
+            formData.append('brandId',  parseInt(values.brandId))
             formData.append('createdDate', values.createdDate)
             formData.append('updatedDate', values.updatedDate)
-            formData.append('userId', parseInt(userId))
+            formData.append('userId', parseInt(values.userId))
             formData.append('status', values.status)
+            console.log(values);
             addOrEdit(formData, resetForm)
         }
     }
@@ -70,6 +70,15 @@ export default function CollectionList(props) {
                     handleSuccess("New Collection Added");
                     refreshCollectionList();
                     resetForm();
+                })
+                .catch(function (error) {
+                    if (error.response){
+                        console.log(error.response)                        
+                        }else if(error.request){
+                            console.log(error.request)
+                        }else if(error.message){
+                            console.log(error.message)
+                        }
                 })
         }
         else {
