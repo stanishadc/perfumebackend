@@ -153,9 +153,9 @@ export default function AddProduct(props) {
         temp.collectionId = values.collectionId == 0 ? false : true;
         temp.bottleId = values.bottleId == 0 ? false : true;
         temp.imageSrc = values.imageSrc == defaultProductImage ? false : true;
-        //temp.topImageSrc = values.topImageSrc == defaultProductImage ? false : true;
-        //temp.heartImageSrc = values.heartImageSrc == defaultProductImage ? false : true;
-        //temp.baseImageSrc = values.baseImageSrc == defaultProductImage ? false : true;
+        temp.topImageSrc = values.topImageSrc == defaultProductImage ? false : true;
+        temp.heartImageSrc = values.heartImageSrc == defaultProductImage ? false : true;
+        temp.baseImageSrc = values.baseImageSrc == defaultProductImage ? false : true;
         temp.productDescription = values.productDescription == "" ? false : true;
         setErrors(temp)
         return Object.values(temp).every(x => x == true)
@@ -218,8 +218,7 @@ export default function AddProduct(props) {
     const addOrEdit = (formData) => {
         if (formData.get('productId') == "0") {
             applicationAPI().create(formData)
-                .then(res => {      
-                    console.log(res)              
+                .then(res => {                          
                     if (res.data.status == "Success") {
                         InsertProductImage(res)
                         resetForm();
