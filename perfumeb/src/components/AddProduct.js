@@ -153,9 +153,9 @@ export default function AddProduct(props) {
         temp.collectionId = values.collectionId == 0 ? false : true;
         temp.bottleId = values.bottleId == 0 ? false : true;
         temp.imageSrc = values.imageSrc == defaultProductImage ? false : true;
-        temp.topImageSrc = values.topImageSrc == defaultProductImage ? false : true;
-        temp.heartImageSrc = values.heartImageSrc == defaultProductImage ? false : true;
-        temp.baseImageSrc = values.baseImageSrc == defaultProductImage ? false : true;
+        //temp.topImageSrc = values.topImageSrc == defaultProductImage ? false : true;
+        //temp.heartImageSrc = values.heartImageSrc == defaultProductImage ? false : true;
+        //temp.baseImageSrc = values.baseImageSrc == defaultProductImage ? false : true;
         temp.productDescription = values.productDescription == "" ? false : true;
         setErrors(temp)
         return Object.values(temp).every(x => x == true)
@@ -218,7 +218,8 @@ export default function AddProduct(props) {
     const addOrEdit = (formData) => {
         if (formData.get('productId') == "0") {
             applicationAPI().create(formData)
-                .then(res => {                    
+                .then(res => {      
+                    console.log(res)              
                     if (res.data.status == "Success") {
                         InsertProductImage(res)
                         resetForm();
@@ -240,6 +241,7 @@ export default function AddProduct(props) {
         formImageData.append('userId', 1)
         applicationAPI().createImage(formImageData)
                 .then(res => {
+                    console.log(res)
                     if (res.data.status == "Success") {
                         handleSuccess("New Product Added");
                     }
@@ -408,16 +410,7 @@ export default function AddProduct(props) {
                                         </div>
                                     </div>
                                     <div className="form-group row floating-label">
-                                        <div className="col-sm-4 col-12">
-                                            <select value={values.collectionId} onChange={handleInputChange} className={"form-control" + applyErrorClass('collectionId')} name="collectionId">
-                                                <option value="0">Please Select</option>
-                                                {collectionList.map(collection =>
-                                                    <option key={collection.collectionId} value={collection.collectionId}>{collection.collectionName}</option>
-                                                )}
-                                            </select>
-                                            <label htmlFor="status">Collection</label>
-                                        </div>
-                                        <div className="col-sm-4 col-12">
+                                    <div className="col-sm-4 col-12">
                                             <select value={values.brandId} onChange={handleInputChange} className={"form-control" + applyErrorClass('brandId')} name="brandId">
                                                 <option value="0">Please Select</option>
                                                 {brandList.map(brand =>
@@ -426,6 +419,15 @@ export default function AddProduct(props) {
                                             </select>
                                             <label htmlFor="status">Brand</label>
                                         </div>
+                                        <div className="col-sm-4 col-12">
+                                            <select value={values.collectionId} onChange={handleInputChange} className={"form-control" + applyErrorClass('collectionId')} name="collectionId">
+                                                <option value="0">Please Select</option>
+                                                {collectionList.map(collection =>
+                                                    <option key={collection.collectionId} value={collection.collectionId}>{collection.collectionName}</option>
+                                                )}
+                                            </select>
+                                            <label htmlFor="status">Collection</label>
+                                        </div>                                        
                                         <div className="col-sm-4 col-12">
                                             <select value={values.categoryId} onChange={handleInputChange} className={"form-control" + applyErrorClass('categoryId')} name="categoryId">
                                                 <option value="0">Please Select</option>
