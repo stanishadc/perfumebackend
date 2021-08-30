@@ -144,6 +144,14 @@ export default function AddProduct(props) {
             [name]: value
         })
     }
+    const handleInputBrandChange = e => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        })
+        refreshCollectionList(value);
+    }
     const validate = () => {
         let temp = {}
         temp.productName = values.productName == "" ? false : true;
@@ -209,7 +217,7 @@ export default function AddProduct(props) {
             fetchBrands: () => axios.get('https://papi.perfumatory.shop/api/brand/get'),
             fetchBottles: () => axios.get('https://papi.perfumatory.shop/api/bottle/get'),
             fetchCategories: () => axios.get('https://papi.perfumatory.shop/api/category/get'),
-            fetchCollections: () => axios.get('https://papi.perfumatory.shop/api/collection/get'),
+            fetchCollections: (Id) => axios.get('https://papi.perfumatory.shop/api/Collection/GetByBrandId/'+Id),
             create: newRecord => axios.post(url + "insert", newRecord),
             createImage: newRecord => axios.post("https://papi.perfumatory.shop/api/productimage/insert", newRecord),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord)            
@@ -263,8 +271,8 @@ export default function AddProduct(props) {
             .then(res => setBrandList(res.data))
             .catch(err => console.log(err))
     }
-    function refreshCollectionList() {
-        applicationAPI().fetchCollections()
+    function refreshCollectionList(Id) {
+        applicationAPI().fetchCollections(Id)
             .then(res => setCollectionList(res.data))
             .catch(err => console.log(err))
     }
@@ -280,7 +288,6 @@ export default function AddProduct(props) {
     }
     useEffect(() => {
         refreshCategoryList();
-        refreshCollectionList();
         refreshBrandList();
         refreshBottleList();
     }, [])
@@ -395,6 +402,8 @@ export default function AddProduct(props) {
                                             <select value={values.status} onChange={handleInputChange} className="form-control" name="status">
                                                 <option value="true">active</option>
                                                 <option value="false">inactive</option>
+                                                <option value="false">outofstock</option>
+                                                <option value="false">discounted</option>
                                             </select>
                                             <label htmlFor="status">Status</label>
                                         </div>
@@ -410,7 +419,7 @@ export default function AddProduct(props) {
                                     </div>
                                     <div className="form-group row floating-label">
                                     <div className="col-sm-4 col-12">
-                                            <select value={values.brandId} onChange={handleInputChange} className={"form-control" + applyErrorClass('brandId')} name="brandId">
+                                            <select value={values.brandId} onChange={handleInputBrandChange} className={"form-control" + applyErrorClass('brandId')} name="brandId">
                                                 <option value="0">Please Select</option>
                                                 {brandList.map(brand =>
                                                     <option key={brand.brandId} value={brand.brandId}>{brand.brandName}</option>
