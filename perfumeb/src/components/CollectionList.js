@@ -54,9 +54,9 @@ export default function CollectionList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/collection/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/collection/') => {
         return {
-            fetchBrands: () => axios.get('https://papi.perfumatory.shop/api/brand/get'),
+            fetchBrands: () => axios.get('https://perfumeapi.azurewebsites.net/api/brand/get'),
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord),

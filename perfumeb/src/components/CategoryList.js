@@ -53,7 +53,7 @@ export default function CategoryList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/category/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/category/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

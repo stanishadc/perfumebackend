@@ -82,7 +82,7 @@ export default function BrandsList(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/brand/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/brand/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

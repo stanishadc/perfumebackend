@@ -53,7 +53,7 @@ export default function Bottles(props) {
             addOrEdit(formData, resetForm)
         }
     }
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/bottle/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/bottle/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             create: newRecord => axios.post(url + "insert", newRecord),

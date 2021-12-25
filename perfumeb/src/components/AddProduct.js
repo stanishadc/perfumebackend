@@ -209,14 +209,14 @@ export default function AddProduct(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/product/') => {
         return {
-            fetchBrands: () => axios.get('https://papi.perfumatory.shop/api/brand/get'),
-            fetchBottles: () => axios.get('https://papi.perfumatory.shop/api/bottle/get'),
-            fetchCategories: () => axios.get('https://papi.perfumatory.shop/api/category/get'),
-            fetchCollections: (Id) => axios.get('https://papi.perfumatory.shop/api/Collection/GetByBrandId/'+Id),
+            fetchBrands: () => axios.get('https://perfumeapi.azurewebsites.net/api/brand/get'),
+            fetchBottles: () => axios.get('https://perfumeapi.azurewebsites.net/api/bottle/get'),
+            fetchCategories: () => axios.get('https://perfumeapi.azurewebsites.net/api/category/get'),
+            fetchCollections: (Id) => axios.get('https://perfumeapi.azurewebsites.net/api/Collection/GetByBrandId/'+Id),
             create: newRecord => axios.post(url + "insert", newRecord),
-            createImage: newRecord => axios.post("https://papi.perfumatory.shop/api/productimage/insert", newRecord),
+            createImage: newRecord => axios.post("https://perfumeapi.azurewebsites.net/api/productimage/insert", newRecord),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord)            
         }
     }

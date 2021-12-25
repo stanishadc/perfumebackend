@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 
 export default function CustomerOrders(props) {
     const [ordersList, setOrdersList] = useState([])
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/order/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/order/') => {
         return {
             fetchAll: () => axios.get(url + 'GetCustomerOrders/' + props.match.params["customerId"])
         }

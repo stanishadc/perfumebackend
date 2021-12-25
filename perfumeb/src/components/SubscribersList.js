@@ -15,7 +15,7 @@ export default function SubscribersList(props) {
     const [subscriberList, setSubscriberList] = useState([])
     const [values, setValues] = useState(initialFieldValues)
     const [loading, setLoading] = useState(false);
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/subscribe/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/subscribe/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             delete: id => axios.delete(url + "delete/" + id),

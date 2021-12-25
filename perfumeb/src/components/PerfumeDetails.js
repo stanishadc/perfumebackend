@@ -204,13 +204,13 @@ export default function PerfumeDetails(props) {
         }
     }
 
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/product/') => {
         return {
-            fetchProductDetails: () => axios.get('https://papi.perfumatory.shop/api/product/getbyid/'+props.match.params["productId"]),
-            fetchBrands: () => axios.get('https://papi.perfumatory.shop/api/brand/get'),
-            fetchBottles: () => axios.get('https://papi.perfumatory.shop/api/bottle/get'),
-            fetchCategories: () => axios.get('https://papi.perfumatory.shop/api/category/get'),
-            fetchCollections: () => axios.get('https://papi.perfumatory.shop/api/collection/get'),
+            fetchProductDetails: () => axios.get('https://perfumeapi.azurewebsites.net/api/product/getbyid/'+props.match.params["productId"]),
+            fetchBrands: () => axios.get('https://perfumeapi.azurewebsites.net/api/brand/get'),
+            fetchBottles: () => axios.get('https://perfumeapi.azurewebsites.net/api/bottle/get'),
+            fetchCategories: () => axios.get('https://perfumeapi.azurewebsites.net/api/category/get'),
+            fetchCollections: () => axios.get('https://perfumeapi.azurewebsites.net/api/collection/get'),
             update: (id, updateRecord) => axios.put(url + "update/" + id, updateRecord)
         }
     }

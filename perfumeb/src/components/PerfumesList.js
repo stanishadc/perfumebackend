@@ -8,11 +8,11 @@ import moment from 'moment';
 export default function PerfumessList(props) {
     const [productList, setProductList] = useState([])
     const [loading, setLoading] = useState(false);
-    const applicationAPI = (url = 'https://papi.perfumatory.shop/api/product/') => {
+    const applicationAPI = (url = 'https://perfumeapi.azurewebsites.net/api/product/') => {
         return {
             fetchAll: () => axios.get(url + 'get'),
             delete: id => axios.delete(url + "delete/" + id),
-            deleteimage: id => axios.delete("https://papi.perfumatory.shop/api/productimage/delete/" + id)
+            deleteimage: id => axios.delete("https://perfumeapi.azurewebsites.net/api/productimage/delete/" + id)
         }
     }
     const onDelete = (e, id) => {
