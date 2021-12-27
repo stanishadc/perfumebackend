@@ -299,7 +299,7 @@ export default function AddProduct(props) {
                 <div className="col-sm-9 col-xs-12 content pt-3 pl-0">
                 <span className="text-secondary">Dashboard<i className="fa fa-angle-right mr-2" /> Add New Products</span>
                     <div className="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
-                        {/*Product Listing*/}
+                        {/*Product Li sting*/}
                         <div className="product-list">
                             <div className="row border-bottom mb-4">
                                 <div className="col-sm-8 pt-2"><h6 className="mb-4 bc-header">Add New Products</h6></div>
